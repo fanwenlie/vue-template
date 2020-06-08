@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '10.60.109.25' || 'localhost', // can be overwritten by process.env.HOST
     port: 9528, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
@@ -45,7 +45,7 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: true,
+    cssSourceMap: false,
   },
 
   build: {
@@ -56,8 +56,14 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
 
-    // you can set by youself according to actual condition
-    assetsPublicPath: './',
+    /**
+     * You can set by youself according to actual condition
+     * You will need to set this if you plan to deploy your site under a sub path,
+     * for example GitHub pages. If you plan to deploy your site to https://foo.github.io/bar/,
+     * then assetsPublicPath should be set to "/bar/".
+     * In most cases please use '/' !!!
+     */
+    assetsPublicPath: '/vueAdmin-template/', // If you are deployed on the root path, please use '/'
 
     /**
      * Source Maps

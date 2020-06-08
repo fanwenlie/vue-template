@@ -4,19 +4,9 @@
     <breadcrumb></breadcrumb>
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
-        <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+        <img class="user-avatar" src="https://i.loli.net/2017/08/21/599a521472424.jpg">
         <i class="el-icon-caret-bottom"></i>
       </div>
-      <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <router-link class="inlineBlock" to="/">
-          <el-dropdown-item>
-            Home
-          </el-dropdown-item>
-        </router-link>
-        <el-dropdown-item divided>
-          <span @click="logout" style="display:block;">LogOut</span>
-        </el-dropdown-item>
-      </el-dropdown-menu>
     </el-dropdown>
   </el-menu>
 </template>
@@ -34,27 +24,18 @@ export default {
   computed: {
     ...mapGetters([
       'sidebar',
-      'avatar'
     ])
   },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('ToggleSideBar')
     },
-    logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload() // 为了重新实例化vue-router对象 避免bug
-      })
-    }
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .navbar {
-  position: absolute;
-  z-index: 10;
-  width: 100%;
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;

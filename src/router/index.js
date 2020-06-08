@@ -19,32 +19,24 @@ import Layout from '../views/layout/Layout'
 * meta : {
     title: 'title'               the name show in submenu and breadcrumb (recommend set)
     icon: 'svg-name'             the icon show in the sidebar,
-    roles: ['admin', 'editor']   will control the page roles(you can set multiple roles)
   }
 **/
 export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
+
   {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    hidden: true,
+    // hidden: true,
     children: [{
       path: 'dashboard',
+      meta: { title: 'Dashboard', icon: 'example' },
       component: () => import('@/views/dashboard/index')
     }]
-  }
-]
+  },
 
-export default new Router({
-  // mode: 'history', //后端支持可开
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRouterMap
-})
-
-export const asyncRouterMap = [
   {
     path: '/example',
     component: Layout,
@@ -56,38 +48,16 @@ export const asyncRouterMap = [
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: {
-          title: 'Table',
-          icon: 'table'
-        }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree', roles: ['admin'] }
+        meta: { title: 'Table', icon: 'table' }
       }
     ]
   },
-
-  {
-    path: '/form',
-    component: Layout,
-    meta: {
-      roles: ['staff']
-    },
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: {
-          title: 'Form',
-          icon: 'form'
-        }
-      }
-    ]
-  },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
+
+export default new Router({
+  // mode: 'history', //后端支持可开
+  scrollBehavior: () => ({ y: 0 }),
+  routes: constantRouterMap
+})
+

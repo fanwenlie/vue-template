@@ -1,3 +1,3 @@
-> 该模板基于vue-cli2
+> 模板基于vue-cli2
 
-vue-admin后台管理系统：有登录，有菜单权限控制
+vue-admin后台管理系统：基于admin-full分离，去掉登录、菜单权限控制
