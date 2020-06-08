@@ -1,2 +1,3 @@
-# vue-template
-vue项目开发模板
+> 该模板基于vue-cli3
+
+普通vue页面开发模版，没有ui框架，只有vue，vue-router, axios...
